@@ -1,0 +1,13 @@
+.myPres{
+    margin:auto;
+    width: fit-content;
+    max-width: 50%;
+    height: calc(100% - 142px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    margin:0;
+}
