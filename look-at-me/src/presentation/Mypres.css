@@ -1,5 +1,5 @@
-.myPres{
-    margin:auto;
+.myPres {
+    margin: auto;
     width: fit-content;
     max-width: 50%;
     height: calc(100% - 142px);
@@ -8,6 +8,11 @@
     justify-content: center;
 }
 
-h1{
-    margin:0;
+h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.myPresSpanP {
+    font-size: 32px;
 }
