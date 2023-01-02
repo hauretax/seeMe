@@ -1,3 +1,9 @@
+
+:root {
+  --bottom-height: 400px;
+  --nav-height: 142px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,11 +16,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#background {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background-color: #A33FB4;
 }

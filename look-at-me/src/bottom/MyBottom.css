@@ -1,0 +1,16 @@
+
+
+.mybottom {
+    height: var(--bottom-height);
+    width: 100%;
+    background: rgb(240, 9, 9);
+    background: linear-gradient(180deg, rgba(240, 9, 9, 1) 0%, rgba(255, 102, 0, 1) 100%);
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+
+.position {
+    height: var(--bottom-height);
+    width: 100%;
+}
