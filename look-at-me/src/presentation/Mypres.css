@@ -2,7 +2,7 @@
     margin: auto;
     width: fit-content;
     max-width: 50%;
-    height: calc(100% - 142px);
+    height: calc(100% - var(--nav-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
