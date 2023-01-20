@@ -1,0 +1,36 @@
+.ticketContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+
+
+.ticketProject {
+    max-width: 300px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.ticketProject>div:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+
+h1.ticket_project {
+    font-size: 20px;
+}
+
+h2.ticket_project {
+    font-size: 13px;
+    margin: 0;
+    color: gray;
+}
+
+.ticket_project_bottom {
+    display: flex;
+    justify-content: space-between;
+}

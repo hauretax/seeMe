@@ -1,4 +1,4 @@
-.App{
+.App {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -6,6 +6,8 @@
 
 #content {
   background-color: #A33FB4;
-  height: 100%;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  min-height: 100%;
+  margin-bottom: 40px;
+  -webkit-box-shadow: 0px 3px 10px 9px rgb(0 0 0 / 71%);
+  box-shadow: 0px 3px 10px 9px rgb(0 0 0 / 71%);
 }

@@ -3,6 +3,7 @@ import './App.css';
 import MyBottom from './bottom/MyBottom';
 import MyNav from './nav/MyNav';
 import Mypres from './presentation/Mypres';
+import TicketContainer from './project/ticketContainer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <MyNav />
       <div id='content'>
         <Mypres />
+        <TicketContainer />
       </div>
       <MyBottom />
     </div>
