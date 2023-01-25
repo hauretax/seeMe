@@ -8,6 +8,18 @@ export default function TicketContainer() {
             <TicketProject />
             <TicketProject />
             <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
+            <TicketProject />
         </div>
     )
 }
