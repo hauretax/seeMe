@@ -3,6 +3,7 @@
     width: fit-content;
     max-width: 50%;
     /* height: calc(100% - var(--nav-height)); */
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
