@@ -38,7 +38,7 @@ export default function Calendar() {
     const date = new Date();
     const [month, setMonth] = useState(date.getMonth());
     const [year, setYear] = useState(date.getFullYear());
-    const [calendTab, setCalend] = useState(getMonthDays(year, month +1));
+    const [calendTab, setCalend] = useState(getMonthDays(year, month + 1));
 
     // console.log(month, getMonthDays(2023, 2))
 
@@ -63,23 +63,15 @@ export default function Calendar() {
     return (
         <div className="my_calendar">
             <div className="main-container-wrapper">
-                <header>
-                    <button className="header__btn header__btn--left" title="aw" onClick={() => moovMonth(-1)}>
-                        ←
-                    </button>
-                    <button className="header__btn header__btn--right" title="Add event" onClick={() => moovMonth(1)}>
-                        →
-                    </button>
-                </header>
                 <main>
                     <div className="calendar-container">
                         <div className="calendar-container__header">
-                            <button className="calendar-container__btn calendar-container__btn--left" title="Previous">
-                                <i className="icon ion-ios-arrow-back"></i>
+                            <button className="calendar-container__btn calendar-container__btn--left" onClick={() => moovMonth(-1)} >
+                                -
                             </button>
                             <h2 className="calendar-container__title">{monthTab[month]} {year}</h2>
-                            <button className="calendar-container__btn calendar-container__btn--right" title="Next">
-                                <i className="icon ion-ios-arrow-forward"></i>
+                            <button className="calendar-container__btn calendar-container__btn--right" onClick={() => moovMonth(1)} >
+                                +
                             </button>
                         </div>
                         <div className="calendar-container__body">
