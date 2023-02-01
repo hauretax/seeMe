@@ -1,4 +1,5 @@
 import './calendar.css'
+import React, { useState } from 'react';
 
 // ref :  https://codepen.io/eliza-rjb/pen/xmbEWX
 function getFirstMonthDay(dateString) {
@@ -27,30 +28,47 @@ function getMonthDays(year, month) {
 }
 
 
+
+
 export default function Calendar() {
     const monthTab = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre']
     const dayTab = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-    const calendTab = getMonthDays('2023', '01')
+
 
     const date = new Date();
-    let month = date.getMonth()
-    let year = date.getFullYear();
+    const [month, setMonth] = useState(date.getMonth());
+    const [year, setYear] = useState(date.getFullYear());
+    const [calendTab, setCalend] = useState(getMonthDays(year, month +1));
 
-    
+    // console.log(month, getMonthDays(2023, 2))
+
+    function moovMonth(value) {
+        let tmpMonth = month
+        let tmpYear = year
+        if (tmpMonth + value === -1) {
+            tmpYear--
+            tmpMonth = 11
+        }
+        else if (tmpMonth + value === 12) {
+            tmpYear++;
+            tmpMonth = 0
+        }
+        else
+            tmpMonth += value
+        setYear(tmpYear);
+        setMonth(tmpMonth);
+        setCalend(getMonthDays(tmpYear, tmpMonth + 1))
+    }
 
     return (
         <div className="my_calendar">
             <div className="main-container-wrapper">
                 <header>
-                    <button className="header__btn header__btn--left" title="Menu">
-                        <svg className="icon" width="20px" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#fff" d="M0 0h20v2H0zM0 7h20v2H0zM0 14h20v2H0z" />
-                        </svg>
+                    <button className="header__btn header__btn--left" title="aw" onClick={() => moovMonth(-1)}>
+                        ←
                     </button>
-                    <button className="header__btn header__btn--right" title="Add event">
-                        <svg className="icon" width="26px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path fill="#fff" d="M416 277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416v42.666z" />
-                        </svg>
+                    <button className="header__btn header__btn--right" title="Add event" onClick={() => moovMonth(1)}>
+                        →
                     </button>
                 </header>
                 <main>

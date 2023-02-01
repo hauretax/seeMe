@@ -1,6 +1,6 @@
 import './Mypres.css';
 
-export default function () {
+export default function Mypres() {
     return (
         <div className="myPres">
             <h1>Bonjour !</h1>
