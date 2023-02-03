@@ -20,10 +20,10 @@ function getMonthDays(year, month) {
     const numberDays = daysInMonth(year, month)
     const tab = [];
     for (let i = 1; i <= numberDays; i++) {
-        tab.push(i)
+        tab.push({nb : i, class: 'calendar-table__event'})
     }
     for (let i = 1; i < dayToMoov; i++) {
-        tab.unshift(' ')
+        tab.unshift({nb: ' ', class: 'noHover'})
     }
     return tab
 }
@@ -105,9 +105,9 @@ export default function Calendar() {
                             {/* show number in calendar */}
                             <div className="calendar-table__body">
                                 {calendTab.map(function (object, i) {
-                                    return <div key={i} className="calendar-table__col" >
-                                        <div className={`calendar-table__item ${object === ' ' ? 'noHover' : ''}`}>
-                                            <span>{object}</span>
+                                    return <div key={i} className={`calendar-table__col ${object.class} `} >
+                                        <div className={`calendar-table__item ${object.class} `}>
+                                            <span>{object.nb}</span>
                                         </div>
                                     </div>;
                                 })}
