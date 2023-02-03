@@ -1,5 +1,6 @@
 import './calendar.css'
 import React, { useState } from 'react';
+import EventList from './event';
 
 // ref :  https://codepen.io/eliza-rjb/pen/xmbEWX
 function getFirstMonthDay(dateString) {
@@ -27,10 +28,20 @@ function getMonthDays(year, month) {
     return tab
 }
 
-const tmpEvent = [{title: 'Town hall meeting', dateStart: 1675522183000 ,dateEnd: 1675529383000}]
+const tmpEvents = [{ title: 'Town hall meeting', dateStart: 1693200000, dateEnd: 1693286400000 },
+{ title: 'Community gathering', dateStart: 1704608000000, dateEnd: 1704780800000 },
+{ title: 'City council meeting', dateStart: 1717440000000, dateEnd: 1717484800000 },
+{ title: 'Public forum', dateStart: 1730240000000, dateEnd: 173030400000 },
+{ title: 'Neighborhood meeting', dateStart: 1739840000000, dateEnd: 173990400000 },
+{ title: 'Town hall discussion', dateStart: 1754144000000, dateEnd: 175422400000 },
+{ title: 'Municipal meeting', dateStart: 1767232000000, dateEnd: 176731600000 },
+{ title: 'Local government meeting', dateStart: 1781712000000, dateEnd: 178176800000 },
+{ title: 'Community council meeting', dateStart: 179450400000, dateEnd: 179454800000 },
+{ title: 'City hall meeting', dateStart: 1806912000000, dateEnd: 1806956800000 }
+]
+function getEvent() {
 
-function getEvent() { 
-    
+    return tmpEvents
 }
 
 
@@ -44,7 +55,7 @@ export default function Calendar() {
     const [year, setYear] = useState(date.getFullYear());
     const [calendTab, setCalend] = useState(getMonthDays(year, month + 1));
 
-    const event = [{}]
+    const [events, setEvents] = useState(getEvent());
 
     // console.log(month, getMonthDays(2023, 2))
 
@@ -69,74 +80,42 @@ export default function Calendar() {
     return (
         <div className="my_calendar">
             <div className="main-container-wrapper">
-                
-                    <div className="calendar-container">
-                        <div className="calendar-container__header">
-                            <button className="calendar-container__btn calendar-container__btn--left" onClick={() => moovMonth(-1)} >
-                                -
-                            </button>
-                            <h2 className="calendar-container__title">{monthTab[month]} {year}</h2>
-                            <button className="calendar-container__btn calendar-container__btn--right" onClick={() => moovMonth(1)} >
-                                +
-                            </button>
-                        </div>
-                        <div className="calendar-container__body">
-                            <div className="calendar-table">
-                                <div className="calendar-table__header">
-                                    {/* show days */}
-                                    <div className="calendar-table__row">
-                                        {dayTab.map(function (object, i) {
-                                            return <div key={i} className="calendar-table__col" >{object[0]}</div>;
-                                        })}
 
-                                    </div>
-                                </div>
-                                {/* show number in calendar */}
-                                <div className="calendar-table__body">
-                                    {calendTab.map(function (object, i) {
-                                        return <div key={i} className="calendar-table__col" >
-                                            <div className={`calendar-table__item ${object === ' ' ? 'noHover' : ''}`}>
-                                                <span>{object}</span>
-                                            </div>
-                                        </div>;
+                <div className="calendar-container">
+                    <div className="calendar-container__header">
+                        <button className="calendar-container__btn calendar-container__btn--left" onClick={() => moovMonth(-1)} >
+                            -
+                        </button>
+                        <h2 className="calendar-container__title">{monthTab[month]} {year}</h2>
+                        <button className="calendar-container__btn calendar-container__btn--right" onClick={() => moovMonth(1)} >
+                            +
+                        </button>
+                    </div>
+                    <div className="calendar-container__body">
+                        <div className="calendar-table">
+                            <div className="calendar-table__header">
+                                {/* show days */}
+                                <div className="calendar-table__row">
+                                    {dayTab.map(function (object, i) {
+                                        return <div key={i} className="calendar-table__col" >{object[0]}</div>;
                                     })}
+
                                 </div>
+                            </div>
+                            {/* show number in calendar */}
+                            <div className="calendar-table__body">
+                                {calendTab.map(function (object, i) {
+                                    return <div key={i} className="calendar-table__col" >
+                                        <div className={`calendar-table__item ${object === ' ' ? 'noHover' : ''}`}>
+                                            <span>{object}</span>
+                                        </div>
+                                    </div>;
+                                })}
                             </div>
                         </div>
                     </div>
-                    <div className="events-container">
-                        <span className="events__title">Upcoming events this month</span>
-                        <ul className="events__list">
-                            <li className="events__item">
-                                <div className="events__item--left">
-                                    <span className="events__name">Town hall meeting</span>
-                                    <span className="events__date">Oct 5</span>
-                                </div>
-                                <span className="events__tag">16:00</span>
-                            </li>
-                            <li className="events__item">
-                                <div className="events__item--left">
-                                    <span className="events__name">Meet with George</span>
-                                    <span className="events__date">Oct 7</span>
-                                </div>
-                                <span className="events__tag">10:00</span>
-                            </li>
-                            <li className="events__item">
-                                <div className="events__item--left">
-                                    <span className="events__name">Vacation!!!</span>
-                                    <span className="events__date">Oct 16 - Oct 18</span>
-                                </div>
-                                <span className="events__tag events__tag--highlighted">All day</span>
-                            </li>
-                            <li className="events__item">
-                                <div className="events__item--left">
-                                    <span className="events__name">Visit Grandma</span>
-                                    <span className="events__date">Oct 27 - Oct 28</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-         
+                </div>
+                <EventList events={events} />
             </div>
         </div>
     )

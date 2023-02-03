@@ -237,6 +237,8 @@ body {
 }
 
 .events-container {
+    overflow: auto;
+    height: 400px;
     padding: 0 15px;
 }
 
