@@ -27,7 +27,11 @@ function getMonthDays(year, month) {
     return tab
 }
 
+const tmpEvent = [{title: 'Town hall meeting', dateStart: 1675522183000 ,dateEnd: 1675529383000}]
 
+function getEvent() { 
+    
+}
 
 
 export default function Calendar() {
@@ -39,6 +43,8 @@ export default function Calendar() {
     const [month, setMonth] = useState(date.getMonth());
     const [year, setYear] = useState(date.getFullYear());
     const [calendTab, setCalend] = useState(getMonthDays(year, month + 1));
+
+    const event = [{}]
 
     // console.log(month, getMonthDays(2023, 2))
 
@@ -63,7 +69,7 @@ export default function Calendar() {
     return (
         <div className="my_calendar">
             <div className="main-container-wrapper">
-                <main>
+                
                     <div className="calendar-container">
                         <div className="calendar-container__header">
                             <button className="calendar-container__btn calendar-container__btn--left" onClick={() => moovMonth(-1)} >
@@ -130,7 +136,7 @@ export default function Calendar() {
                             </li>
                         </ul>
                     </div>
-                </main>
+         
             </div>
         </div>
     )
