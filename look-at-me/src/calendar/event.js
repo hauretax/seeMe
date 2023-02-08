@@ -27,8 +27,7 @@ const Event = ({ title, dateStart, dateEnd }) => {
 const EventList = ({ events }) => {
     return (
         <div className="events-container">
-            <span className="events__title">Upcoming events this month</span>
-            <ul className="events__list">
+             <ul className="events__list">
                 {events.map(event => (
                     <Event key={event.title} {...event} />
                 ))}
