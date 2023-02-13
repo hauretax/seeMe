@@ -4,8 +4,7 @@ export default function Mypres() {
     return (
         <div className="myPres">
             <h1>Bonjour !</h1>
-            <span className="mypresSpan">Je suis dev web full stack
-vous trouverez ici un apercus de mes competence .</span>
+            <span className="mypresSpan">IL y as un super text ici mais la j ai pas d idee</span>
         </div>
     )
 }
