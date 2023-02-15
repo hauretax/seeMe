@@ -12,6 +12,7 @@
     background-color: white;
     padding: 20px;
     border-radius: 8px;
+    max-width: 400px;
 }
 
 .ticketProject>div:not(:last-child) {
@@ -41,7 +42,7 @@ h2.ticket_project {
 
 @media screen and (max-width: 1550px) {
     .ticketContainer {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

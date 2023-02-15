@@ -5,7 +5,11 @@
 }
 
 #content {
-  background-color: #A33FB4;
+  background-image: url(../public/img/montagne.png);
+  background-attachment: fixed;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
   min-height: 100%;
   margin-bottom: 40px;
   -webkit-box-shadow: 0px 3px 10px 9px rgb(0 0 0 / 71%);
