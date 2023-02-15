@@ -35,6 +35,7 @@ const tmpEvents = [{ title: 'Town hall meeting', dateStart: 1640486400000, dateE
 { title: 'Public forum', dateStart: 1661604800000, dateEnd: 1661659200000 },
 { title: 'Neighborhood meeting', dateStart: 1666022400000, dateEnd: 1666080000000 },
 { title: 'Town hall discussion', dateStart: 1676614400000, dateEnd: 1676694400000 },
+{ title: 'Town hall discussion', dateStart: 1676754400000, dateEnd: 1676694400000 },
 { title: 'Municipal meeting', dateStart: 1685772800000, dateEnd: 1685852400000 },
 { title: 'Local government meeting', dateStart: 1693758400000, dateEnd: 1693835200000 },
 { title: 'Community council meeting', dateStart: 1703305600000, dateEnd: 1703386800000 },
@@ -69,14 +70,21 @@ const tmpEvents = [{ title: 'Town hall meeting', dateStart: 1640486400000, dateE
 ];
 
 
-function getEvent(year, month) {
+function getEvent(year, month, day) {
     let events = [];
     tmpEvents.forEach(function (el) {
 
         const elDate = new Date(el.dateStart)
         el.dateText = `${elDate.getDate()}-${elDate.getMonth()}-${elDate.getFullYear()}`
-        if (elDate.getMonth() === month && elDate.getFullYear() === year)
+
+        if (day) {
+            if (elDate.getMonth() === month && elDate.getFullYear() === year && day === elDate.getDate())
+                events.push(el)
+        }
+        else if (elDate.getMonth() === month && elDate.getFullYear() === year)
             events.push(el)
+
+
     })
     return events
 }
@@ -127,7 +135,7 @@ export default function Calendar() {
                         <button className="calendar-container__btn calendar-container__btn--left" onClick={() => moovMonth(-1)} >
                             -
                         </button>
-                        <h2 className="calendar-container__title">{monthTab[month]} {year}</h2>
+                        <h2 onClick={() => setEvents(getEvent(year, month + 1))} className="calendar-container__title">{monthTab[month]} {year}</h2>
                         <button className="calendar-container__btn calendar-container__btn--right" onClick={() => moovMonth(1)} >
                             +
                         </button>
@@ -147,7 +155,7 @@ export default function Calendar() {
                             <div className="calendar-table__body">
                                 {calendTab.map(function (object, i) {
                                     return <div key={i} className={`calendar-table__col ${object.class} `} >
-                                        <div className={`calendar-table__item ${object.class} `}>
+                                        <div onClick={() => setEvents(getEvent(year, month + 1, object.nb))} className={`calendar-table__item ${object.class} `}>
                                             <span>{object.nb}</span>
                                         </div>
                                     </div>;
